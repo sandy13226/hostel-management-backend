@@ -1,0 +1,17 @@
+com\example\demo\DemoApplication.class
+com\example\demo\service\StudentService.class
+com\example\demo\controller\AllocationController.class
+com\example\demo\controller\HostelController.class
+com\example\demo\repository\HostelRepository.class
+com\example\demo\controller\RoomController.class
+com\example\demo\entity\Student.class
+com\example\demo\service\AllocationService.class
+com\example\demo\repository\RoomRepository.class
+com\example\demo\entity\Room.class
+com\example\demo\controller\StudentController.class
+com\example\demo\entity\Hostel.class
+com\example\demo\repository\StudentRepository.class
+com\example\demo\service\RoomService.class
+com\example\demo\entity\Allocation.class
+com\example\demo\repository\AllocationRepository.class
+com\example\demo\service\HostelService.class
