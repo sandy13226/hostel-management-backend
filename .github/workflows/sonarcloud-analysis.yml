@@ -42,8 +42,10 @@ jobs:
           args: >
             -Dsonar.organization=sandy13226
             -Dsonar.projectKey=sandy13226_hostel-management-backend
-            -Dsonar.sources=.
+            -Dsonar.sources=src/main/java
+            -Dsonar.tests=src/test/java
             -Dsonar.java.binaries=target/classes
+            -Dsonar.junit.reportPaths=target/surefire-reports
             -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
 
       - name: Quality Gate check
