@@ -1,80 +1,63 @@
-# Hostel Management Backend
+# Hostel Management System – Backend
 
-This is the **backend** of the Hostel Management system built with **Spring Boot** and **H2 database**.  
-The backend APIs are deployed on **Render (Free Tier)** and connected with a React frontend deployed on **Vercel**.
-
----
-
-## API Base URL
-
-Backend deployed URL (Render):  
-[https://hostel-management-backend-rc9d.onrender.com](https://hostel-management-backend-rc9d.onrender.com)
+This is the **Spring Boot backend** for the Hostel Management System.  
+It handles student, hostel, room, and allocation management for the application.
 
 ---
 
-## Available APIs
-
-### Students
-- `GET /api/students` - List all students  
-- `POST /api/students` - Add a new student  
-- `PUT /api/students/{id}` - Update a student  
-- `DELETE /api/students/{id}` - Delete a student  
-
-### Hostels
-- `GET /api/hostels` - List all hostels  
-- `POST /api/hostels` - Add a new hostel  
-
-### Rooms
-- `GET /api/rooms` - List all rooms  
-- `POST /api/rooms` - Add a new room  
-
-### Allocations
-- `GET /api/allocations` - List all allocations  
-- `POST /api/allocations` - Allocate a room to a student  
-
-> All endpoints are accessible by the frontend only from:  
-> `https://hostel-management-frontend-beta.vercel.app`
+🚀 **Live Backend URL (Render – Free Plan)**  
+👉 [https://hostel-management-backend-rc9d.onrender.com/api/students](https://hostel-management-backend-rc9d.onrender.com/api/students)  
+> (Wait a few seconds; the backend may need to wake up before returning `[]` when no data is present.)
 
 ---
 
-## Frontend Repo
-
-The frontend for this backend is hosted on Vercel:  
-[https://hostel-management-frontend-beta.vercel.app/](https://hostel-management-frontend-beta.vercel.app/)
+⚠️ **Important Note (Render Free Plan):**  
+- This backend is hosted on **Render Free Plan**.  
+- If idle, it may sleep automatically.  
+- When opening the frontend, the backend may take **30–60 seconds** to wake up.  
+- Please open the backend URL once before using the frontend.
 
 ---
 
-## Running Locally
+📊 **Project Presentation**  
+👉 Download Project PPT: `[Add your PPT link here]`
 
-1. Clone the repository:
+---
+
+🛠️ **Tech Stack**  
+- Java  
+- Spring Boot  
+- Spring Data JPA  
+- H2 Database  
+- Maven  
+- Docker  
+- SonarCloud  
+- Render (Deployment)
+
+---
+
+▶️ **Run Locally**
 
 ```bash
 git clone https://github.com/sandy13226/hostel-management-backend.git
 cd hostel-management-backend
-Build with Maven:
+mvn spring-boot:run
+Backend runs at:
+http://localhost:8080
 
-mvn clean package
+🔍 SonarCloud
 
+SonarCloud analysis integrated using GitHub Actions.
 
-Run the JAR:
+Quality Gate passed successfully ✅
 
-java -jar target/demo-0.0.1-SNAPSHOT.jar
+🌐 Frontend
 
+Frontend is built using React and deployed on Vercel.
 
-Access APIs locally at: http://localhost:8080/api/
+👉 Frontend Repository:
+https://github.com/sandy13226/hostel-management-frontend
 
-Technology Stack
+👉 Live Frontend URL:
+https://hostel-management-frontend-beta.vercel.app/
 
-Spring Boot
-
-H2 Database (in-memory)
-
-Maven
-
-Render Free Tier (for deployment)
-
-REST APIs
-
-PPT Link
-
-Add your backend PPT link here: [Your PPT Link Here]
