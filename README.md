@@ -20,7 +20,7 @@ It handles student, hostel, room, and allocation management for the application.
 ---
 
 📊 **Project Presentation**  
-👉 Download Project PPT: `[Add your PPT link here]`
+👉 Download Project PPT: https://github.com/sandy13226/hostel-management-backend/blob/main/Hostel-Management-System.pptx
 
 ---
 
