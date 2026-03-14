@@ -8,7 +8,9 @@ com\example\demo\entity\Student.class
 com\example\demo\service\AllocationService.class
 com\example\demo\repository\RoomRepository.class
 com\example\demo\entity\Room.class
+com\example\demo\config\CorsConfig.class
 com\example\demo\controller\StudentController.class
+com\example\demo\controller\HomeController.class
 com\example\demo\entity\Hostel.class
 com\example\demo\repository\StudentRepository.class
 com\example\demo\service\RoomService.class

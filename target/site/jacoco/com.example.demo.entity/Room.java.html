@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Room.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">demo</a> &gt; <a href="index.source.html" class="el_package">com.example.demo.entity</a> &gt; <span class="el_source">Room.java</span></div><h1>Room.java</h1><pre class="source lang-java linenums">package com.example.demo.entity;
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = &quot;rooms&quot;)
+public class Room {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    @ManyToOne
+    @JoinColumn(name = &quot;hostel_id&quot;, nullable = false)
+    private Hostel hostel;
+    
+    @Column(nullable = false)
+    private String roomNumber;
+    
+    @Column(nullable = false)
+    private Integer capacity;
+    
+<span class="pc" id="L23">    @Column(nullable = false)</span>
+<span class="pc" id="L24">    private Integer occupiedBeds = 0;</span>
+    
+    private String floor;
+    
+    private String roomType; // Single/Double/Triple/Quad
+    
+    // Constructors
+<span class="fc" id="L31">    public Room() {</span>
+<span class="fc" id="L32">    }</span>
+    
+<span class="nc" id="L34">    public Room(Hostel hostel, String roomNumber, Integer capacity, String floor, String roomType) {</span>
+<span class="nc" id="L35">        this.hostel = hostel;</span>
+<span class="nc" id="L36">        this.roomNumber = roomNumber;</span>
+<span class="nc" id="L37">        this.capacity = capacity;</span>
+<span class="nc" id="L38">        this.floor = floor;</span>
+<span class="nc" id="L39">        this.roomType = roomType;</span>
+<span class="nc" id="L40">        this.occupiedBeds = 0;</span>
+<span class="nc" id="L41">    }</span>
+    
+    // Getters and Setters
+    public Long getId() {
+<span class="nc" id="L45">        return id;</span>
+    }
+    
+    public void setId(Long id) {
+<span class="nc" id="L49">        this.id = id;</span>
+<span class="nc" id="L50">    }</span>
+    
+    public Hostel getHostel() {
+<span class="nc" id="L53">        return hostel;</span>
+    }
+    
+    public void setHostel(Hostel hostel) {
+<span class="nc" id="L57">        this.hostel = hostel;</span>
+<span class="nc" id="L58">    }</span>
+    
+    public String getRoomNumber() {
+<span class="nc" id="L61">        return roomNumber;</span>
+    }
+    
+    public void setRoomNumber(String roomNumber) {
+<span class="nc" id="L65">        this.roomNumber = roomNumber;</span>
+<span class="nc" id="L66">    }</span>
+    
+    public Integer getCapacity() {
+<span class="nc" id="L69">        return capacity;</span>
+    }
+    
+    public void setCapacity(Integer capacity) {
+<span class="nc" id="L73">        this.capacity = capacity;</span>
+<span class="nc" id="L74">    }</span>
+    
+    public Integer getOccupiedBeds() {
+<span class="nc" id="L77">        return occupiedBeds;</span>
+    }
+    
+    public void setOccupiedBeds(Integer occupiedBeds) {
+<span class="nc" id="L81">        this.occupiedBeds = occupiedBeds;</span>
+<span class="nc" id="L82">    }</span>
+    
+    public String getFloor() {
+<span class="nc" id="L85">        return floor;</span>
+    }
+    
+    public void setFloor(String floor) {
+<span class="nc" id="L89">        this.floor = floor;</span>
+<span class="nc" id="L90">    }</span>
+    
+    public String getRoomType() {
+<span class="nc" id="L93">        return roomType;</span>
+    }
+    
+    public void setRoomType(String roomType) {
+<span class="nc" id="L97">        this.roomType = roomType;</span>
+<span class="nc" id="L98">    }</span>
+    
+    public Integer getAvailableBeds() {
+<span class="nc" id="L101">        return capacity - occupiedBeds;</span>
+    }
+    
+    public boolean isAvailable() {
+<span class="nc bnc" id="L105" title="All 2 branches missed.">        return occupiedBeds &lt; capacity;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

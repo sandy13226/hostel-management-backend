@@ -11,7 +11,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/rooms")
-@CrossOrigin(origins = "https://hostel-management-frontend-beta.vercel.app")
 public class RoomController {
     
     @Autowired

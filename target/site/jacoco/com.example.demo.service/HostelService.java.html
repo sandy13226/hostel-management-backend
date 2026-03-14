@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>HostelService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">demo</a> &gt; <a href="index.source.html" class="el_package">com.example.demo.service</a> &gt; <span class="el_source">HostelService.java</span></div><h1>HostelService.java</h1><pre class="source lang-java linenums">package com.example.demo.service;
+
+import com.example.demo.entity.Hostel;
+import com.example.demo.repository.HostelRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+<span class="fc" id="L11">public class HostelService {</span>
+    
+    @Autowired
+    private HostelRepository hostelRepository;
+    
+    public List&lt;Hostel&gt; getAllHostels() {
+<span class="nc" id="L17">        return hostelRepository.findAll();</span>
+    }
+    
+    public Hostel getHostelById(Long id) {
+<span class="nc" id="L21">        return hostelRepository.findById(id)</span>
+<span class="nc" id="L22">                .orElseThrow(() -&gt; new RuntimeException(&quot;Hostel not found with id: &quot; + id));</span>
+    }
+    
+    public List&lt;Hostel&gt; getHostelsByType(String type) {
+<span class="nc" id="L26">        return hostelRepository.findByType(type);</span>
+    }
+    
+    public Hostel createHostel(Hostel hostel) {
+<span class="nc bnc" id="L30" title="All 2 branches missed.">        if (hostelRepository.existsByName(hostel.getName())) {</span>
+<span class="nc" id="L31">            throw new RuntimeException(&quot;Hostel with name &quot; + hostel.getName() + &quot; already exists&quot;);</span>
+        }
+<span class="nc" id="L33">        return hostelRepository.save(hostel);</span>
+    }
+    
+    public Hostel updateHostel(Long id, Hostel hostelDetails) {
+<span class="nc" id="L37">        Hostel hostel = getHostelById(id);</span>
+        
+<span class="nc" id="L39">        hostel.setName(hostelDetails.getName());</span>
+<span class="nc" id="L40">        hostel.setType(hostelDetails.getType());</span>
+<span class="nc" id="L41">        hostel.setTotalRooms(hostelDetails.getTotalRooms());</span>
+<span class="nc" id="L42">        hostel.setTotalCapacity(hostelDetails.getTotalCapacity());</span>
+<span class="nc" id="L43">        hostel.setWarden(hostelDetails.getWarden());</span>
+<span class="nc" id="L44">        hostel.setAddress(hostelDetails.getAddress());</span>
+<span class="nc" id="L45">        hostel.setFacilities(hostelDetails.getFacilities());</span>
+        
+<span class="nc" id="L47">        return hostelRepository.save(hostel);</span>
+    }
+    
+    public void deleteHostel(Long id) {
+<span class="nc" id="L51">        Hostel hostel = getHostelById(id);</span>
+<span class="nc" id="L52">        hostelRepository.delete(hostel);</span>
+<span class="nc" id="L53">    }</span>
+    
+    public void updateOccupancy(Long hostelId, int change) {
+<span class="nc" id="L56">        Hostel hostel = getHostelById(hostelId);</span>
+<span class="nc" id="L57">        hostel.setOccupiedCapacity(hostel.getOccupiedCapacity() + change);</span>
+<span class="nc" id="L58">        hostelRepository.save(hostel);</span>
+<span class="nc" id="L59">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

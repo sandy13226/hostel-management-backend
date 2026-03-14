@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Allocation.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">demo</a> &gt; <a href="index.source.html" class="el_package">com.example.demo.entity</a> &gt; <span class="el_source">Allocation.java</span></div><h1>Allocation.java</h1><pre class="source lang-java linenums">package com.example.demo.entity;
+
+import jakarta.persistence.*;
+import java.time.LocalDate;
+
+@Entity
+@Table(name = &quot;allocations&quot;)
+public class Allocation {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    @ManyToOne
+    @JoinColumn(name = &quot;student_id&quot;, nullable = false)
+    private Student student;
+    
+    @ManyToOne
+    @JoinColumn(name = &quot;room_id&quot;, nullable = false)
+    private Room room;
+    
+    @Column(nullable = false)
+    private LocalDate allocationDate;
+    
+    private LocalDate checkInDate;
+    
+    private LocalDate checkOutDate;
+    
+    @Column(nullable = false, name = &quot;allocation_status&quot;)
+    private String status; // ACTIVE, CHECKED_OUT, TRANSFERRED
+    
+    private String remarks;
+    
+    // Constructors
+<span class="fc" id="L35">    public Allocation() {</span>
+<span class="fc" id="L36">    }</span>
+    
+<span class="nc" id="L38">    public Allocation(Student student, Room room, LocalDate allocationDate, String status) {</span>
+<span class="nc" id="L39">        this.student = student;</span>
+<span class="nc" id="L40">        this.room = room;</span>
+<span class="nc" id="L41">        this.allocationDate = allocationDate;</span>
+<span class="nc" id="L42">        this.status = status;</span>
+<span class="nc" id="L43">    }</span>
+    
+    // Getters and Setters
+    public Long getId() {
+<span class="nc" id="L47">        return id;</span>
+    }
+    
+    public void setId(Long id) {
+<span class="nc" id="L51">        this.id = id;</span>
+<span class="nc" id="L52">    }</span>
+    
+    public Student getStudent() {
+<span class="nc" id="L55">        return student;</span>
+    }
+    
+    public void setStudent(Student student) {
+<span class="nc" id="L59">        this.student = student;</span>
+<span class="nc" id="L60">    }</span>
+    
+    public Room getRoom() {
+<span class="nc" id="L63">        return room;</span>
+    }
+    
+    public void setRoom(Room room) {
+<span class="nc" id="L67">        this.room = room;</span>
+<span class="nc" id="L68">    }</span>
+    
+    public LocalDate getAllocationDate() {
+<span class="nc" id="L71">        return allocationDate;</span>
+    }
+    
+    public void setAllocationDate(LocalDate allocationDate) {
+<span class="nc" id="L75">        this.allocationDate = allocationDate;</span>
+<span class="nc" id="L76">    }</span>
+    
+    public LocalDate getCheckInDate() {
+<span class="nc" id="L79">        return checkInDate;</span>
+    }
+    
+    public void setCheckInDate(LocalDate checkInDate) {
+<span class="nc" id="L83">        this.checkInDate = checkInDate;</span>
+<span class="nc" id="L84">    }</span>
+    
+    public LocalDate getCheckOutDate() {
+<span class="nc" id="L87">        return checkOutDate;</span>
+    }
+    
+    public void setCheckOutDate(LocalDate checkOutDate) {
+<span class="nc" id="L91">        this.checkOutDate = checkOutDate;</span>
+<span class="nc" id="L92">    }</span>
+    
+    public String getStatus() {
+<span class="nc" id="L95">        return status;</span>
+    }
+    
+    public void setStatus(String status) {
+<span class="nc" id="L99">        this.status = status;</span>
+<span class="nc" id="L100">    }</span>
+    
+    public String getRemarks() {
+<span class="nc" id="L103">        return remarks;</span>
+    }
+    
+    public void setRemarks(String remarks) {
+<span class="nc" id="L107">        this.remarks = remarks;</span>
+<span class="nc" id="L108">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

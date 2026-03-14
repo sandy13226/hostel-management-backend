@@ -13,7 +13,6 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/allocations")
-@CrossOrigin(origins = "https://hostel-management-frontend-beta.vercel.app")
 public class AllocationController {
     
     @Autowired
