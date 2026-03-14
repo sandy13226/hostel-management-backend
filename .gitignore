@@ -1,0 +1,24 @@
+# Maven / Spring Boot build output
+/target/
+*.jar
+*.war
+*.ear
+
+# Logs
+*.log
+logs/
+
+# IDEs
+.idea/
+.vscode/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Optional local runtime data
+/data/
+
+# Maven wrapper jar should be kept
+!.mvn/wrapper/maven-wrapper.jar
